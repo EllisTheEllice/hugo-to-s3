@@ -17,9 +17,11 @@ if test -f "$OUTPATH"; then
     echo -n "$line" | sed "s/^.*upload: \(.*\) to.*/\"\1\" /" >> $FILESPATH
   done < "$OUTPATH"
 
-  echo "Send invalidation request..."
-  echo "aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "$(cat $FILESPATH)
-  aws cloudfront create-invalidation --distribution-id $ID --paths $(cat $FILESPATH)
+  if test -f "$FILESPATH"; then
+    echo "Send invalidation request..."
+    echo "aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "$(cat $FILESPATH)
+    aws cloudfront create-invalidation --distribution-id $ID --paths $(cat $FILESPATH)
+  fi
 
 fi
 
