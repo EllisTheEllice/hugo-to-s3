@@ -14,7 +14,7 @@ if test -f "$OUTPATH"; then
 
   while IFS= read -r line
   do
-    echo -n "$line" | sed "s/^.*upload: \(.*\) to.*/\"\/\1\" /" | sed "s/^\"\/\.\(.*\)\"/\"\/\1\" /" >> $FILESPATH
+    echo -n "$line" | sed "s/^.*upload: \(.*\) to.*/\"\/\1\" /" | sed "s/^\"\/\.\(.*\)\"/\"\1\" /" >> $FILESPATH
   done < "$OUTPATH"
 
   #test if filespath exists and contains the list of files to invalidate. Only if it exists, proceed
