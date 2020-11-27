@@ -3,7 +3,7 @@
 Dockerimage containing Hugo as well as aws cli. The main purpose of this image is to automatically transfer generated hugo page to an AWS S3 Bucket.
 
 # Usage
-docker run --rm -v \<local-volume>:/src -e AWS_ACCESS_KEY_ID=\<aws-access-key> -e AWS_SECRET_ACCESS_KEY=\<aws-secret> -e S3_BUCKET=\<bucketname> -e DISTRIBUTION_ID=\<dist-id> ellistheellice/hugobuilder:latest
+docker run --rm -v \<local-volume>:/src -e AWS_ACCESS_KEY_ID=\<aws-access-key> -e AWS_SECRET_ACCESS_KEY=\<aws-secret> -e S3_BUCKET=\<bucketname> -e DISTRIBUTION_ID=\<dist-id> ellistheellice/hugo-to-s3:latest
 
 ## Sources
 Hugo will take source code located at /src to genrate the output. The above example illustrates how to mount a local directoy into the containers /src directory.
