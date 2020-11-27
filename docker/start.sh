@@ -8,7 +8,7 @@ hugo -D --minify
 cd $OUTPUTFOLDER
 #aws s3 sync . s3://$S3_BUCKET/ --size-only --exclude ".*"  --dryrun > $OUTPATH
 aws s3 sync . s3://$S3_BUCKET/ --size-only --exclude ".*" --delete
-aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths /*
+aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
 #test if the outputfile exists. Only if it does, proceed
 #if test -f "$OUTPATH"; then
 #
